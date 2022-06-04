@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValorantSkills | Gráficos</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="dashboards.css">
+    <script src="../js/funcoes.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- scripts do Chart.js -->
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+
+</head>
+
+<body onload="validarSessao(), plotarGrafico()">
+
+    <div class="janela">
+        <div class="header-left">
+            <h1>Valorant Skills</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./cards.html">
+                    <h3>Agentes</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+
+                <h3>Dashboard</h3>
+
+            </div>
+
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash">
+
+
+                <div id="caixa" class="dash">
+
+
+                    <div id="boneco" class="boneco">
+                        
+                            <img id="cypher" src="./corpo/1.png" class="corpo_dash">
+                            <img id= "raze" src="./corpo/2.png" class="corpo_dash">
+                            <img id= "reyna" src="./corpo/3.png" class="corpo_dash">
+                            <img id= "sage" src="./corpo/4.png" class="corpo_dash">
+                            <img id= "skye" src="./corpo/5.png" class="corpo_dash">
+                            <img id= "viper" src="./corpo/6.png" class="corpo_dash">
+                            <img id= "yoru" src="./corpo/7.png" class="corpo_dash">
+                            <img id= "astra" src="./corpo/8.png" class="corpo_dash">
+                            <img id= "breach" src="./corpo/9.png" class="corpo_dash">
+                            <img id= "brin" src="./corpo/10.png" class="corpo_dash">
+                            <img id= "chamber" src="./corpo/11.png" class="corpo_dash">
+                            <img id= "fade" src="./corpo/12.png" class="corpo_dash">
+                            <img id= "jett" src="./corpo/13.png" class="corpo_dash">
+                            <img id= "kayo" src="./corpo/14.png" class="corpo_dash">
+                            <img id= "killjoy" src="./corpo/15.png" class="corpo_dash">
+                            <img id= "neon" src="./corpo/16.png" class="corpo_dash">
+                            <img id= "omen" src="./corpo/17.png" class="corpo_dash">
+                            <img id= "phoenix" src="./corpo/18.png" class="corpo_dash">
+                            <img id= "sova" src="./corpo/19.png" class="corpo_dash">
+
+                    </div>
+        <div class="infoDash">
+
+                    <div class="caixa2">
+                    <div id="grafico1" class="grafico1">
+                        <canvas id="canvas_grafico1"></canvas>
+
+                        <div class="legenda_grafico1_verde"></div> <div class="escrita_vitoria">% de Derrota</div>
+                        <div id="total_vitoria"></div>
+                        <div class="legenda_grafico1_vermelho"></div> <div class="escrita_derrota">% de Vitória</div>
+                    </div>
+                    <div id="grafico2" class="grafico2">
+                        <canvas id="canvas_grafico2"></canvas>
+
+
+                        <div class="legenda_grafico1_verde"></div> <div class="escrita_vitoria">% de não pick</div>
+                        <div id="total_pick"></div>
+                        <div class="legenda_grafico1_vermelho"></div> <div class="escrita_derrota">% de pick </div>
+
+                    </div>
+                    <div id="kda" class="kda">
+                        <span id="plotar_kda"></span>
+        </div>
+
+                
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    
+    function plotarGrafico() {
+        canvas_grafico = document.getElementById("canvas_grafico1")
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-umidade',
+                    label: 'Win Rate',
+                    borderColor: 'none',
+                    backgroundColor:[ 'rgb(255, 0, 0)',
+                   'rgb(72, 255, 0)'],
+                
+                    fill: true,
+                    data: [100-(sessionStorage.TAXA_VITORIA)]
+                },
+            ]
+        };
+            dados.datasets[0].data.push(sessionStorage.TAXA_VITORIA);
+           
+    
+
+        console.log(JSON.stringify(dados));
+
+        var ctx = canvas_grafico.getContext('2d');
+        window.grafico_pizza = Chart.Doughnut(ctx, {
+            data: dados,
+            options: {
+                responsive: false,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Dados capturados'
+                },
+            }
+        });
+
+// GRAFICO 2 //
+canvas_grafico = document.getElementById("canvas_grafico2")
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-umidade',
+                    label: 'Win Rate',
+                    borderColor: 'none',
+                    backgroundColor:[ 'rgb(255, 0, 0)',
+                   'rgb(72, 255, 0)'],
+                
+                    fill: true,
+                    data: [100-(sessionStorage.TAXA_PICK)]
+                },
+            ]
+        };
+            dados.datasets[0].data.push(sessionStorage.TAXA_PICK);
+           
+
+    
+
+        console.log(JSON.stringify(dados));
+
+        var ctx = canvas_grafico.getContext('2d');
+        window.grafico_pizza = Chart.Doughnut(ctx, {
+            data: dados,
+            options: {
+                responsive: false,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Dados capturados'
+                },
+            }
+        });
+    }
+
+    // KDA //
+
+    if (sessionStorage.KDA > 1.00) {
+
+        plotar_kda.innerHTML += `<span style="color: rgb(72, 255, 0); font-size:70px;" class="span_kda">${sessionStorage.KDA}</span><br><br><span class="span_total_kda">TAXA DE KDA DE ${sessionStorage.NOME_CAMPEAO.toUpperCase()}</span>`
+        
+    } else {
+
+    plotar_kda.innerHTML += `<span style="color: rgb(255, 0, 0);font-size:70px;" class="span_kda">${sessionStorage.KDA}</span><br><br><span class="span_total_kda">TAXA DE KDA DE ${sessionStorage.NOME_CAMPEAO.toUpperCase()}</span>`
+
+}
+
+// total vitoria //
+
+if (sessionStorage.TAXA_VITORIA > 39.00) {
+    
+    total_vitoria.innerHTML += `<span style="color: rgb(72, 255, 0); font-size:50px;" class="span_vitoria">${sessionStorage.TAXA_VITORIA}%</span><br><br><span class="span_total_vitoria">Total de Vitórias</span>`
+    
+} else {
+
+    total_vitoria.innerHTML += `<span style="color: rgb(255, 0, 0); font-size:50px;" class="span_vitoria">${sessionStorage.TAXA_VITORIA}%</span><br><br><span class="span_total_vitoria">Total de Vitórias</span>`
+
+}
+
+
+
+// pick hate //
+
+if (sessionStorage.TAXA_PICK > 6.0) {
+    
+    total_pick.innerHTML += `<span style="color: rgb(72, 255, 0); font-size:50px;" class="span_pick">${sessionStorage.TAXA_PICK}%</span><br><br><span class="span_total_pick">Total de pick</span>`
+    
+} else {
+
+    total_pick.innerHTML += `<span style="color: rgb(255, 0, 0); font-size:50px;" class="span_pick">${sessionStorage.TAXA_PICK}%</span><br><br><span class="span_total_pick">Total de pick</span>`
+
+}
+
+
+// IMAGENS //
+
+if (sessionStorage.ID_CAMPEAO == 1) {
+    
+    cypher.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 2) {
+        
+    raze.style.display = 'block'
+
+
+}
+
+
+if (sessionStorage.ID_CAMPEAO == 3) {
+        
+    reyna.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 4) {
+        
+    sage.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 5) {
+       
+    skye.style.display = 'block'
+
+ 
+}
+
+if (sessionStorage.ID_CAMPEAO == 6) {
+        
+    viper.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 7) {
+        
+    yoru.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 8) {
+        
+    astra.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 9) {
+        
+    breach.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 10) {
+        
+    brin.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 11) {
+        
+    chamber.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 12) {
+        
+    fade.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 13) {
+        
+    jett.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 14) {
+        
+    kayo.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 15) {
+       
+    killjoy.style.display = 'block'
+
+ 
+}
+
+if (sessionStorage.ID_CAMPEAO == 16) {
+        
+    neon.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 17) {
+        
+    omen.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 18) {
+        
+    phoenix.style.display = 'block'
+
+
+}
+
+if (sessionStorage.ID_CAMPEAO == 19) {
+        
+    sova.style.display = 'block'
+    
+
+}
+
+
+</script>

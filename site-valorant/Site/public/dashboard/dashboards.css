@@ -1,0 +1,339 @@
+/* pagina mural */
+
+*,
+body {
+  font-family: "Exo 2", sans-serif;
+  user-select: none;
+}
+
+
+.caixa {
+  width: 1000px;
+  height: 660px;
+  margin-left: 460px;
+  margin-top: 50px;
+
+}
+
+.caixa2{
+
+display: grid;
+
+
+}
+
+
+.icones {
+
+width: 150px;
+height: 150px;
+margin-left: 5px;
+border: 2px solid #fa4454;
+margin-top: 8px;
+
+
+
+}
+
+.icones:hover {
+
+width: 152px;
+height: 152px;
+cursor: pointer;
+
+}
+
+.corpoDiv {
+
+display: none;
+width: 1000px;
+height: 660px;
+margin-left: 460px;
+margin-top: 50px;
+
+
+}
+
+.corpo {
+
+display: none;
+height: 600px;
+margin-top: 25px;
+}
+
+.corpo_dash {
+
+  display: none;
+  height: 600px;
+  }
+
+.personagemInfo {
+
+  border: 2px solid white;
+  height: 600px;
+  margin-top: 25px;
+  width: 550px;
+  margin-left: 20px;
+}
+
+.descricao {
+
+  border: 2px solid white;
+  height: 200px;
+  margin-top: 25px;
+  width: 500px;
+  margin-left: 20px;
+  color: white;
+
+}
+
+.habilidades {
+
+  border: 2px solid white;
+  height: 250px;
+  margin-top: 25px;
+  width: 500px;
+  margin-left: 20px;
+
+} 
+
+.botao {
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: rgb(255, 255, 255);
+background-color: rgb(65, 246, 246);
+position: fixed;
+margin-left: 100px;
+margin-top: 20px;
+height: 50px;
+width: 150px;
+border: 2px solid rgb(8, 144, 144);
+
+}
+
+.botaoVoltar {
+
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: rgb(255, 255, 255);
+background-color: rgb(246, 65, 65);
+position: fixed;
+margin-left: 300px;
+margin-top: 20px;
+height: 50px;
+width: 150px;
+border: 2px solid rgb(144, 8, 8);
+
+
+}
+
+.boneco {
+
+ 
+  height: 600px;
+  margin-top: 25px;
+  margin-left: 20px;
+  width: 393.325px;
+}
+
+.grafico1 {
+
+ 
+  height: 175px;
+  margin-top: 25px;
+  width: 540px;
+  margin-left: 20px;
+  color: white;
+ 
+
+
+}
+
+.grafico2 {
+
+
+  height: 175px;
+  width: 540px;
+  margin-left: 20px;
+  color: white;
+}
+
+.kda {
+
+
+  height: 175px;
+  width: 540px;
+  margin-left: 20px;
+  color: white;
+}
+
+
+
+.dash {
+  width: 1000px;
+  height: 660px;
+  margin-left: 240px;
+  margin-top: 30px;
+  display: flex;
+}
+
+
+ canvas{
+
+  display: block;
+  height: 170px;
+  width: 340px;
+  margin-left: -85px;
+  margin-top: -3px;
+}
+
+#plotar_kda {
+  font-size: 25px;
+  justify-content: center;
+  display: grid;
+  margin-top: 10px;
+
+}
+
+.span_kda {
+
+  justify-content: center;
+  display: grid;
+}
+
+.span_total_kda{
+
+margin-top: -30px;
+
+}
+
+.legenda_grafico1_vermelho {
+
+  height: 10px;
+  width: 10px;
+  border: solid black 1px;
+  background-color: rgb(75,255,0);
+  margin-left: 200px;
+  margin-top: -60px;
+  
+}
+
+.legenda_grafico1_verde {
+
+  height: 10px;
+  width: 10px;
+  border: solid black 1px;
+  background-color: rgb(255,0,0);
+  margin-left: 200px;
+  margin-top: -60px;
+  
+  }
+
+.escrita_derrota{
+
+ margin-left: 230px;
+ margin-top: -17px;
+}
+
+.escrita_vitoria{
+
+  margin-left: 230px;
+  margin-top: -17px;
+
+}
+
+#total_vitoria {
+
+
+  margin-left: 300px;
+  margin-top: -90px;
+  justify-content: center;
+  display: grid;
+}
+
+.span_total_vitoria{
+
+  margin-left: 20px;
+  margin-top: -23px;
+}
+
+.span_vitoria {
+
+  margin-left: 10px;
+  
+}
+
+.legenda_grafico2_vermelho {
+
+  height: 10px;
+  width: 10px;
+  border: solid black 1px;
+  background-color: rgb(75,255,0);
+  margin-left: 200px;
+  margin-top: -70px;
+  
+}
+
+.legenda_grafico2_verde {
+
+  height: 10px;
+  width: 10px;
+  border: solid black 1px;
+  background-color: rgb(255,0,0);
+  margin-left: 200px;
+  margin-top: 18px;
+  
+  }
+
+#escrita_derrota2{
+
+ margin-left: 230px;
+ margin-top: 3px;
+}
+
+.escrita_vitoria2{
+
+  margin-left: 230px;
+  margin-top: -60px;
+
+}
+
+#total_pick {
+
+  margin-left: 300px;
+  margin-top: -90px;
+  justify-content: center;
+  display: grid;
+
+}
+
+.span_pick {
+
+  margin-left: 10px;
+
+}
+
+.span_total_pick {
+
+  margin-left: 20px;
+  margin-top: -23px;
+  
+}
+
+.infoDash {
+
+
+  border: solid 2px #1d1d20;
+  background-color: #272734;
+  height: 600px;
+}
+
+#grafico1{
+
+border-bottom: 2px solid #3a3a4a;
+
+}
+
+#grafico2{
+
+  border-bottom: 2px solid #3a3a4a;
+  
+  }

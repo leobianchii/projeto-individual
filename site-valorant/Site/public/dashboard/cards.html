@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcquaTec | Tempo Real</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="dashboards.css">
+
+    <script src="../js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="janela">
+
+
+        <div class="header-left dash-header">
+
+            <h1>Valorant Skills</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Agentes</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Dashboard</h3>
+                </a>
+            </div>
+
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        
+
+        </div>
+        
+        
+       <div id="caixa" class="caixa">
+        <img onclick="valorant(1)" class="icones" src="./icon site/1.png">
+        <img onclick="valorant(2)" class="icones" src="./icon site/2.png">
+        <img onclick="valorant(3)" class="icones" src="./icon site/3.png">
+        <img onclick="valorant(4)" class="icones" src="./icon site/4.png">
+        <img onclick="valorant(5)" class="icones" src="./icon site/5.png">
+        <img onclick="valorant(6)" class="icones" src="./icon site/6.png">
+        <img onclick="valorant(7)" class="icones" src="./icon site/7.png">
+        <img onclick="valorant(8)" class="icones" src="./icon site/8.png">
+        <img onclick="valorant(9)" class="icones" src="./icon site/9.png">
+        <img onclick="valorant(10)" class="icones" src="./icon site/10.png">
+        <img onclick="valorant(11)" class="icones" src="./icon site/11.png">
+        <img onclick="valorant(12)" class="icones" src="./icon site/12.png">
+        <img onclick="valorant(13)" class="icones" src="./icon site/13.png">
+        <img onclick="valorant(14)" class="icones" src="./icon site/14.png">
+        <img onclick="valorant(15)" class="icones" src="./icon site/15.png">
+        <img onclick="valorant(16)" class="icones" src="./icon site/16.png">
+        <img onclick="valorant(17)" class="icones" src="./icon site/17.png">
+        <img onclick="valorant(18)" class="icones" src="./icon site/18.png">
+        <img onclick="valorant(19)" class="icones" src="./icon site/19.png">
+
+
+       </div>
+
+    
+       
+       <div id="corpo" class="corpoDiv">
+        <img id="cypher" src="./corpo/1.png" class="corpo">
+        <img id= "raze" src="./corpo/2.png" class="corpo">
+        <img id= "reyna" src="./corpo/3.png" class="corpo">
+        <img id= "sage" src="./corpo/4.png" class="corpo">
+        <img id= "skye" src="./corpo/5.png" class="corpo">
+        <img id= "viper" src="./corpo/6.png" class="corpo">
+        <img id= "yoru" src="./corpo/7.png" class="corpo">
+        <img id= "astra" src="./corpo/8.png" class="corpo">
+        <img id= "breach" src="./corpo/9.png" class="corpo">
+        <img id= "brin" src="./corpo/10.png" class="corpo">
+        <img id= "chamber" src="./corpo/11.png" class="corpo">
+        <img id= "fade" src="./corpo/12.png" class="corpo">
+        <img id= "jett" src="./corpo/13.png" class="corpo">
+        <img id= "kayo" src="./corpo/14.png" class="corpo">
+        <img id= "killjoy" src="./corpo/15.png" class="corpo">
+        <img id= "neon" src="./corpo/16.png" class="corpo">
+        <img id= "omen" src="./corpo/17.png" class="corpo">
+        <img id= "phoenix" src="./corpo/18.png" class="corpo">
+        <img id= "sova" src="./corpo/19.png" class="corpo">
+
+    
+
+            <div class="personagemInfo" id="cypherInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(1)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+        <div class="personagemInfo" id="razeInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(2)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="reynaInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(3)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="sageInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(4)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="skyeInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(5)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="viperInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(6)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="yoruInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(7)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="astraInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(8)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="breachInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(9)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="brinInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(10)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="chamberInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(11)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="fadeInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(12)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="jettInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(13)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="kayoInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(14)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="killjoyInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(15)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="neonInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(16)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="omenInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(17)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="phoenixInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(18)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+        <div class="personagemInfo" id="sovaInfo">
+            <div class="descricao"></div>
+            <div class="habilidades"></div> 
+            <button onclick="selecionar(19)" class="botao"><b>CONFIRMAR AGENTE</b></button>
+            <button onclick="voltarCampeoes()" class="botaoVoltar"><b>VOLTAR</b></button>
+        </div>
+
+
+       </div>
+
+
+
+</body>
+
+<script>
+
+x = 0
+
+function voltarCampeoes() {
+    
+    sumirTodas()
+   
+    caixa.style.display = "block"
+    corpo.style.display = 'none'
+
+}
+
+function valorant(x) {
+    
+
+
+    sumirTodas()
+
+    caixa.style.display = "none"
+    corpo.style.display = 'flex'
+
+    if (x==1) {
+
+        sumirTodas()
+
+    cypher.style.display = 'block'
+    cypherInfo.style.display = 'block'
+
+    }
+ 
+    if (x==2) {
+
+        sumirTodas()
+
+    raze.style.display = 'block'
+    razeInfo.style.display = 'block'
+
+
+    }
+
+    if (x==3) {
+        
+        sumirTodas()
+
+    reyna.style.display = 'block'
+    reynaInfo.style.display = 'block'
+
+
+    } 
+
+    if (x==4) {
+        
+        sumirTodas()
+
+    sage.style.display = 'block'
+    sageInfo.style.display = 'block'
+
+
+    }
+
+    if (x==5) {
+        
+        sumirTodas()
+
+    skye.style.display = 'block'
+    skyeInfo.style.display = 'block'
+
+
+    }
+
+    if (x==6) {
+        
+        sumirTodas()
+
+    viper.style.display = 'block'
+    viperInfo.style.display = 'block'
+
+
+    }
+
+    if (x==7) {
+        
+        sumirTodas()
+
+    yoru.style.display = 'block'
+    yoruInfo.style.display = 'block'
+
+
+    }
+
+    if (x==8) {
+        
+        sumirTodas()
+
+    astra.style.display = 'block'
+    astraInfo.style.display = 'block'
+
+
+    }
+
+    if (x==9) {
+    
+        sumirTodas()
+
+    breach.style.display = 'block'
+    breachInfo.style.display = 'block'
+
+
+    }
+
+    if (x==10) {
+        
+        sumirTodas()
+
+    brin.style.display = 'block'
+    brinInfo.style.display = 'block'
+
+
+    }
+
+    if (x==11) {
+        
+        sumirTodas()
+
+    chamber.style.display = 'block'
+    chamberInfo.style.display = 'block'
+
+
+    }
+
+    if (x==12) {
+        
+        sumirTodas()
+
+    fade.style.display = 'block'
+    fadeInfo.style.display = 'block'
+
+
+    }
+
+    if (x==13) {
+        
+        sumirTodas()
+
+    jett.style.display = 'block'
+    jettInfo.style.display = 'block'
+
+
+    }
+
+    if (x==14) {
+        
+        sumirTodas()
+
+    kayo.style.display = 'block'
+    kayoInfo.style.display = 'block'
+
+
+    }
+
+    if (x==15) {
+        
+        sumirTodas()
+
+    killjoy.style.display = 'block'
+    killjoyInfo.style.display = 'block'
+
+
+    }
+
+    if (x==16) {
+        
+        sumirTodas()
+
+    neon.style.display = 'block'
+    neonInfo.style.display = 'block'
+
+
+    }
+
+    if (x==17) {
+        
+        sumirTodas()
+
+    omen.style.display = 'block'
+    omenInfo.style.display = 'block'
+
+
+    }
+
+    if (x==18) {
+        
+        sumirTodas()
+
+    phoenix.style.display = 'block'
+    phoenixInfo.style.display = 'block'
+
+
+    }
+
+    else if (x==19) {
+        
+        sumirTodas()
+
+    sova.style.display = 'block'
+    sovaInfo.style.display = 'block'
+
+
+}
+
+}
+
+
+
+
+function sumirTodas() {
+    
+cypher.style.display = "none"
+raze.style.display = "none"
+reyna.style.display = "none"
+sage.style.display = "none"
+skye.style.display = "none"
+viper.style.display = "none"
+yoru.style.display = "none"
+astra.style.display = "none"
+breach.style.display = "none"
+brin.style.display = "none"
+chamber.style.display = "none"
+fade.style.display = "none"
+jett.style.display = "none"
+kayo.style.display = "none"
+killjoy.style.display = "none"
+neon.style.display = "none"
+omen.style.display = "none"
+phoenix.style.display = "none"
+sova.style.display = "none"
+
+cypherInfo.style.display = "none"
+razeInfo.style.display = "none"
+reynaInfo.style.display = "none"
+sageInfo.style.display = "none"
+skyeInfo.style.display = "none"
+viperInfo.style.display = "none"
+yoruInfo.style.display = "none"
+astraInfo.style.display = "none"
+breachInfo.style.display = "none"
+brinInfo.style.display = "none"
+chamberInfo.style.display = "none"
+fadeInfo.style.display = "none"
+jettInfo.style.display = "none"
+kayoInfo.style.display = "none"
+killjoyInfo.style.display = "none"
+neonInfo.style.display = "none"
+omenInfo.style.display = "none"
+phoenixInfo.style.display = "none"
+sovaInfo.style.display = "none"
+
+}
+
+b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+function selecionar (x) {
+    
+var idCampeoes = x
+
+
+console.log(x)
+
+    fetch(`/usuarios/mostrarAgentes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idCampeoesServer : idCampeoes
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    console.log(json[0].nomeCampeao)
+                    
+                    sessionStorage.ID_CAMPEAO = idCampeoes;
+                    sessionStorage.NOME_CAMPEAO = json[0].nomeCampeao;
+                    sessionStorage.TAXA_VITORIA = json[0].taxaDeVitoria;
+                    sessionStorage.TAXA_PICK = json[0].taxaDePick;
+                    sessionStorage.KDA = json[0].kda;
+                });
+
+                window.location.href="./dashboard.html"
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar ao puxar dados");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+</script>

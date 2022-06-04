@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AcquaTec | Login</title>
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!--Header-->
+
+    <body>
+        <header class="menu-principal">
+            <main>
+                <div class="header-1">
+                    <div class="logo">
+                        <img src="./img/logo.png" />
+                    </div>
+                    <div class="redes-sociais">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="./img/rss.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/face.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/tw.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/linkedin.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </header>
+        <main class="col-100 menu-urls">
+            <div class="header-2">
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="">Simulador</a>
+                        </li>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+                        <li>
+                            <a href="cadastro.html">Cadastro</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+    <div class="banner">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <h2>Olá de volta!</h2>
+                <div class="formulario">
+
+
+                    <span class="tipo_campo">E-mail:</span>
+                    <input id="email_input" type="text" placeholder="Login">
+
+                    <span class="tipo_campo">Senha:</span>
+                    <input id="senha_input" type="password" placeholder="******">
+
+                    <button class="btn" onclick="entrar()">Entrar</button>
+
+
+                </div>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer inicio-->
+<footer>
+        <div class="col-100 footer">
+            <div class="content">
+                <div class="col-4">
+                    <h3><b>Data de surgimento</b></h3>
+                    <p>
+                        A partir do desenvolvimento em aula.
+                    </p>
+                    <p class="clock">27-05-2022<p>
+                            <p>Data de hospedagem em nuvem</p>
+                            <p class="clock">Em breve<p>
+                </div>
+                <div class="col-4">
+                    <h3><b>Tags do site</b></h3>
+                    <p></p>
+                </div>
+                <div class="col-4">
+                    <h3><b>Sobre nós</b></h3>
+                    <p>
+                        Sou um estudante da faculdade SPTech e desenvolvi meu primeiro website do 0, esse site tem o intuito
+                        de ensinar aqueles que gostariam de aprender sobre o jogo Valorant, junto com dicas e novidades do jogo!
+                    </p>
+                </div>
+                <div class="col-4">
+                    <h3><b>Contato</b></h3>
+                    <p>
+                       Esse campo é destinado para avaliar nosso trabalho e juntamente
+                     para dar suas opiniões e para o surgimento de novos tópicos e novidades.
+                    </p>
+                    <p class="local">Brasil, SP<p>
+                            <p class="emailico">leo-bianchi@hotmail.com<p>
+                                    <p class="telefoneico">(11) 99412-3559<p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="col-100 footer-2">
+        <div class="footer-frase">
+            <p>
+                Feito com amor por um aluno SPTech ♥ Leonardo Bianchi ®
+            </p>
+        </div>
+    </div>
+
+    <!--footer fim-->
+
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+
+</script>
